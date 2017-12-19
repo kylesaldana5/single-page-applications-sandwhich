@@ -12,7 +12,7 @@ let sandwich = {
     "condiments": [],
 };
 
-
+// figure out how to make multiple category calls depending on the id 
 module.exports.addIngredient = (id, value) => {
     sandwich[id].push(value);
     total += bread.addBread(value);

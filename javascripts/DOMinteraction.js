@@ -16,7 +16,10 @@ submit.addEventListener("click", () =>{
     output.innerHTML = `${sandwichMaker.getTotal()} ${sandwichOutput(sandwichMaker.getSandwich())}`;
 });
 
-
+// when 'none' is selected the other boxs are cleared, 
+// if none is checked and you select another one none needs to be cleared 
+// if none is selected you have to clear that catergories total out 
+// if something is clicked more than once can't continue to add the price
 menu.addEventListener('change', () =>{
     sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
     
