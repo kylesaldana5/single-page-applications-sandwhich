@@ -18,7 +18,6 @@ let sandwich = {
 
 // figure out how to make multiple category calls depending on the id 
 module.exports.addIngredient = (id, value) => {
-    console.log(id);
     sandwich[id].push(value);
     switch (id){
         case "bread":
@@ -38,6 +37,29 @@ module.exports.addIngredient = (id, value) => {
 
     }
     return Math.floor(total);
+};
+
+module.exports.removeIngredient = (id, value) => {
+    sandwich[id].splice(sandwich[id].indexOf(value), 1);
+    switch (id) {
+        case "bread":
+            total -= bread.addBread(value);
+            break;
+        case "meat":
+            total -= meat.addMeat(value);
+            break;
+        case "cheese":
+            total -= cheese.addCheese(value);
+            break;
+        case "veggies":
+            total -= veggies.addVeggies(value);
+            break;
+        case "condiments":
+            total -= condiments.addCondiments(value);
+
+    }
+    return Math.floor(total);
+
 };
 
 module.exports.getTotal = () => {

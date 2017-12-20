@@ -32,11 +32,16 @@ function clearCheckboxs(div) {
 
 menu.addEventListener('change', () =>{
     let category = event.target.closest("div");
-    sandwichMaker.addIngredient(category.id, event.target.value);
+   
     if (event.target.value === "none"){
         clearCheckboxs(category);
+    } 
+    if (!event.target.checked) {
+        sandwichMaker.removeIngredient(category.id, event.target.value);
     }
-    
+    else if (event.target.checked){
+        sandwichMaker.addIngredient(category.id, event.target.value);
+    }
 });
 
 let sandwichOutput = (sandwichObject) => {
