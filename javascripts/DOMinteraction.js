@@ -20,8 +20,22 @@ submit.addEventListener("click", () =>{
 // if none is checked and you select another one none needs to be cleared 
 // if none is selected you have to clear that catergories total out 
 // if something is clicked more than once can't continue to add the price
+function clearCheckboxs(div) {
+  let checkCheckboxs = div.getElementsByClassName(div.id);
+  for (let i = 0; i < checkCheckboxs.length; i++) {
+      checkCheckboxs[i].checked = false;
+      
+  }
+
+  
+}
+
 menu.addEventListener('change', () =>{
-    sandwichMaker.addIngredient(event.target.closest("div").id, event.target.value);
+    let category = event.target.closest("div");
+    sandwichMaker.addIngredient(category.id, event.target.value);
+    if (event.target.value === "none"){
+        clearCheckboxs(category);
+    }
     
 });
 
