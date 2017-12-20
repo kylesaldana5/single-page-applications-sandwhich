@@ -35,6 +35,7 @@ menu.addEventListener('change', () =>{
    
     if (event.target.value === "none"){
         clearCheckboxs(category);
+        sandwichMaker.clearCategoryTotal(category);
     } 
     if (!event.target.checked) {
         sandwichMaker.removeIngredient(category.id, event.target.value);

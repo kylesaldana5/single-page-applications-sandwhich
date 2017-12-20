@@ -21,7 +21,8 @@ module.exports.addIngredient = (id, value) => {
     sandwich[id].push(value);
     switch (id){
         case "bread":
-        total += bread.addBread(value);
+        bread.addBread(value);
+        total += bread.breadTotal();
         break;
         case "meat":
         total += meat.addMeat(value);
@@ -60,6 +61,10 @@ module.exports.removeIngredient = (id, value) => {
     }
     return Math.floor(total);
 
+};
+
+module.exports.clearCategoryTotal = (category) => {
+    total -= bread.breadTotal();
 };
 
 module.exports.getTotal = () => {
