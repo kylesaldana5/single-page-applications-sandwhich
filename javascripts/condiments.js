@@ -7,6 +7,6 @@ let condimentsPrice = {
     "none": 0.00,
 };
 
-module.exports.addCondiments = (condimentsType) => {
+module.exports.getCondimentsPrice = (condimentsType) => {
     return condimentsPrice[condimentsType];
 };

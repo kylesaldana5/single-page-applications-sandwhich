@@ -23,8 +23,8 @@ submit.addEventListener("click", () =>{
 function clearCheckboxs(div) {
   let checkCheckboxs = div.getElementsByClassName(div.id);
   for (let i = 0; i < checkCheckboxs.length; i++) {
+      sandwichMaker.clearCategoryTotal(div.id, checkCheckboxs[i]);
       checkCheckboxs[i].checked = false;
-      
   }
 
   
@@ -32,11 +32,13 @@ function clearCheckboxs(div) {
 
 menu.addEventListener('change', () =>{
     let category = event.target.closest("div");
-   
+   let none = category.getElementsByClassName("none");
+   console.log(none);
     if (event.target.value === "none"){
         clearCheckboxs(category);
-        sandwichMaker.clearCategoryTotal(category);
-    } 
+    } else {
+        none[0].checked = false;
+    }
     if (!event.target.checked) {
         sandwichMaker.removeIngredient(category.id, event.target.value);
     }
